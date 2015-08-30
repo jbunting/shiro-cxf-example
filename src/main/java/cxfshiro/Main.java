@@ -33,9 +33,9 @@ public class Main {
 	public static void main(String args[]) {
 		
 			try  {
-				SpringBusFactory factory = new SpringBusFactory();
-				Bus bus = factory.createBus("ServerConfig.xml");
-				BusFactory.setDefaultBus(bus);
+//				SpringBusFactory factory = new SpringBusFactory();
+//				Bus bus = factory.createBus("ServerConfig.xml");
+//				BusFactory.setDefaultBus(bus);
 
 				JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
 
@@ -43,7 +43,7 @@ public class Main {
 				ObjectMapper m = new ObjectMapper();
 				m.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
 
-				String address = "https://localhost:9000";
+				String address = "http://localhost:9000";
 				jackson.setMapper(m);
 				CrossOriginResourceSharingFilter cors = new CrossOriginResourceSharingFilter();
 				sf.setProviders( Arrays.< Object >asList(cors, jackson) ); 
